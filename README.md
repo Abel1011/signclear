@@ -11,6 +11,12 @@ SignClear is a trust layer between a tax preparer, human or AI agent, and the ta
 
 Built for the [PayPal AI Hackathon](https://paypalaihackathon.devpost.com/) · Demo video: https://youtu.be/7PeLDMjWURM
 
+| Fraud caught before signing | Real PayPal checkout (sandbox) | Fee held, real authorization ID |
+|---|---|---|
+| ![Fraud caught](docs/gallery/02-fraud-caught.jpg) | ![PayPal checkout](docs/gallery/04-real-paypal-checkout.jpg) | ![Fee held](docs/gallery/05-fee-held.jpg) |
+| **Early capture refused by code** | **IRS verified → PayPal captures** | **Agent Arena (AI preparers via MCP)** |
+| ![Refused](docs/gallery/06-early-capture-refused.jpg) | ![Captured](docs/gallery/07-irs-verified-captured.jpg) | ![Arena](docs/gallery/10-agent-arena.jpg) |
+
 ---
 
 ## The problem
