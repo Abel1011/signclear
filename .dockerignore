@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.env*
+!.env.example
+prisma/*.db
+prisma/*.db-*
+scratch
+.claude
+coverage
+*.tsbuildinfo
+reader-accuracy.json
