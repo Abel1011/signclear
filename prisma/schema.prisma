@@ -1,0 +1,328 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Preparer {
+  id        String   @id @default(cuid())
+  name      String
+  business  String
+  ptin      String
+  efin      String
+  createdAt DateTime @default(now())
+  cases     Case[]
+  // Multiparty (Partner Referrals v2): the preparer is the merchant of record.
+  paypalMerchantId   String?
+  paypalOnboardedAt  DateTime?
+  paypalPermissions  String? // JSON: permissionsGranted, consentStatus, payments_receivable, ...
+  paypalTrackingId   String?
+}
+
+model Case {
+  id             String    @id @default(cuid())
+  preparerId     String
+  preparer       Preparer  @relation(fields: [preparerId], references: [id])
+  clientName     String
+  clientLang     String    @default("es")
+  fee            Int // cents
+  state          String    @default("CASE_CREATED")
+  version        Int       @default(0)
+  leaseOwner     String?
+  leaseUntil     DateTime?
+  isDemo         Boolean   @default(false)
+  demoSession    String?
+  scenario       String? // maria | ana | casec
+  clockOffsetMs  Int       @default(0)
+  seasonOpen     DateTime?
+  approvedAt     DateTime?
+  ackDeadline    DateTime?
+  transmittedAt  DateTime?
+  submissionId   String?
+  ackReceivedAt  DateTime?
+  capturedAt     DateTime?
+  refundDeadline DateTime? // 72h response window for preparer
+  refundReportedAmount Int?
+  preparerVerdict String? // REFUTED | NOT_REFUTED | INCONCLUSIVE
+  clientConfirmedRefund Boolean @default(false)
+  r15Flag        Boolean   @default(false)
+  stateFee       Int       @default(0) // cents of `fee` that belong to the state return (0 = single federal fee)
+  stateSubmissionId  String?
+  stateAckReceivedAt DateTime?
+  // Agent Arena only: PayPal calls for this case go to the in-process simulator (set by the arena runner, never by an API).
+  paypalSim      Boolean   @default(false)
+  clientToken    String    @unique
+  preparerToken  String    @unique
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  intake       Intake?
+  documents    Document[]
+  values       ExtractedValue[]
+  findings     Finding[]
+  snapshot     ApprovedSnapshot?
+  payment      Payment?
+  agentRuns    AgentRun[]
+  audit        AuditEvent[]
+  notifications Notification[]
+  messages     ChatMessage[]
+  feeLines     FeeLine[]
+  disputes     Dispute[]
+}
+
+model Intake {
+  id        String   @id @default(cuid())
+  caseId    String   @unique
+  case      Case     @relation(fields: [caseId], references: [id])
+  data      String // JSON
+  history   String   @default("[]") // JSON list of changes after findings
+  updatedAt DateTime @updatedAt
+}
+
+model Document {
+  id        String   @id @default(cuid())
+  caseId    String
+  case      Case     @relation(fields: [caseId], references: [id])
+  kind      String // DRAFT_1040 | F8879 | W2 | F1099 | ACK | TRANSCRIPT | DEPOSIT
+  filename  String
+  sha256    String
+  path      String
+  version   Int      @default(1)
+  createdAt DateTime @default(now())
+}
+
+model ExtractedValue {
+  id       String @id @default(cuid())
+  caseId   String
+  case     Case   @relation(fields: [caseId], references: [id])
+  docKind  String
+  form     String
+  line     String
+  label    String // enum key
+  value    String
+  page     Int
+}
+
+model Finding {
+  id        String   @id @default(cuid())
+  caseId    String
+  case      Case     @relation(fields: [caseId], references: [id])
+  rule      String
+  severity  String // IMPORTANT | CLARIFY | POSITIVE | INFO
+  rowKey    String
+  message   String // JSON {es,en,pt}
+  resolved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model ApprovedSnapshot {
+  id        String   @id @default(cuid())
+  caseId    String   @unique
+  case      Case     @relation(fields: [caseId], references: [id])
+  data      String // JSON key values
+  createdAt DateTime @default(now())
+}
+
+model Payment {
+  id              String   @id @default(cuid())
+  caseId          String   @unique
+  case            Case     @relation(fields: [caseId], references: [id])
+  orderId         String?
+  authorizationId String?
+  captureId       String?
+  refundId        String?
+  status          String   @default("NONE")
+  amount          Int
+  currency        String   @default("USD")
+  expirationTime  DateTime?
+  payerName       String?
+  attempt         Int      @default(1)
+  lastDebugId     String?
+  payeeMerchantId String? // multiparty: preparer's PayPal merchant id (null = platform account)
+  updatedAt       DateTime @updatedAt
+}
+
+model WebhookEvent {
+  id        String   @id @default(cuid())
+  eventId   String   @unique
+  eventType String
+  verified  Boolean
+  resource  String
+  createdAt DateTime @default(now())
+}
+
+model AgentRun {
+  id        String   @id @default(cuid())
+  caseId    String
+  case      Case     @relation(fields: [caseId], references: [id])
+  event     String
+  payload   String   @default("{}")
+  status    String   @default("QUEUED") // QUEUED | RUNNING | DONE | FALLBACK | FAILED
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AuditEvent {
+  id        String   @id @default(cuid())
+  caseId    String
+  case      Case     @relation(fields: [caseId], references: [id])
+  actor     String // ai | rules | user | paypal | system | guardian
+  action    String
+  rationale String?
+  detail    String   @default("{}")
+  fromState String?
+  toState   String?
+  debugId   String?
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  caseId    String
+  case      Case     @relation(fields: [caseId], references: [id])
+  audience  String // client | preparer
+  text      String // JSON {es,en,pt}
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  caseId    String
+  case      Case     @relation(fields: [caseId], references: [id])
+  role      String // client | agent | preparer
+  text      String
+  focusRow  String?
+  createdAt DateTime @default(now())
+}
+
+// ---------------------------------------------------------------- Fraud Lab (synthetic corpus evaluations)
+model LabRun {
+  id         String      @id @default(cuid())
+  model      String
+  label      String      @default("")
+  corpus     String      @default("dev") // dev (v1) | unseen (v2 held-out, frozen)
+  version    Int         @default(1) // 2 = production-rules semantics (no double application)
+  startedAt  DateTime
+  finishedAt DateTime?
+  summary    String      @default("{}") // JSON: RunSummary {production|core -> all|byCondition -> Metrics, paired}
+  results    LabResult[]
+}
+
+model LabResult {
+  id                String  @id @default(cuid())
+  runId             String
+  run               LabRun  @relation(fields: [runId], references: [id], onDelete: Cascade)
+  caseKey           String
+  scheme            String
+  split             String  @default("dev")
+  condition         String  @default("pdf") // pdf | scan | photo (what the reader received)
+  expected          String
+  detected          Boolean // production rules (preFilingRules incl. X1–X3 / R14), as engine.ts runs them
+  rules             String // JSON list "R3:IMPORTANT"
+  verdict           String
+  moneyMovedWrongly Boolean
+  readerOk          Int
+  readerTotal       Int
+  latencyMs         Int
+  tokensIn          Int
+  tokensOut         Int
+  detail            String  @default("{}") // JSON: production + core outcomes, PayPal action, reader misses, read values, cost
+
+  @@index([runId])
+}
+
+// ---------------------------------------------------------------- platform (Preparer API v1 + MCP + Agent Arena)
+/// Per-preparer API key. Only the SHA-256 hash is stored; the full key is shown once.
+model ApiKey {
+  id          String    @id @default(cuid())
+  preparerId  String
+  hash        String    @unique
+  prefix      String
+  label       String
+  demoSession String? // sandbox desk the key was created from (its cases show up in that desk)
+  createdAt   DateTime  @default(now())
+  lastUsedAt  DateTime?
+  revokedAt   DateTime?
+
+  @@index([preparerId])
+}
+
+/// One recorded Agent Arena run (one side of one scenario). trace = JSON string.
+model ArenaRun {
+  id        String   @id @default(cuid())
+  scenario  String // honest | malicious | impatient
+  side      String // naive | signclear
+  batch     String   @default("") // groups the two sides of one run
+  model     String   @default("")
+  trace     String // JSON array of steps
+  outcome   String // JSON {headline, ...}
+  createdAt DateTime @default(now())
+
+  @@index([scenario, side, createdAt])
+}
+
+// One line per fee component (FEDERAL, STATE). Each line is captured separately (partial capture of
+// one authorization) and refunded separately; R13 is evaluated per line.
+model FeeLine {
+  id            String    @id @default(cuid())
+  caseId        String
+  case          Case      @relation(fields: [caseId], references: [id])
+  kind          String // FEDERAL | STATE
+  amount        Int // cents
+  platformFee   Int       @default(0) // cents taken by SignClear on capture (multiparty only)
+  status        String    @default("AUTHORIZED") // AUTHORIZED | CAPTURE_PENDING | PENDING | COMPLETED | DENIED | VOIDED | REFUND_PENDING | REFUNDED | REVERSED
+  captureId     String?   @unique
+  capturedAt    DateTime?
+  refundId      String?
+  refundedAmount Int      @default(0)
+  lastDebugId   String?
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([caseId, kind])
+}
+
+model Dispute {
+  id                  String    @id @default(cuid())
+  disputeId           String    @unique
+  caseId              String?
+  case                Case?     @relation(fields: [caseId], references: [id])
+  captureId           String?
+  reason              String?
+  status              String?
+  stage               String?
+  amount              Int? // cents
+  sellerResponseDue   DateTime?
+  links               String    @default("[]") // HATEOAS links as returned by PayPal
+  outcome             String?
+  evidenceSubmittedAt DateTime?
+  claimAcceptedAt     DateTime?
+  lastDebugId         String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+/// Idempotency-Key for POST /v1/cases: (preparer, desk, key) -> the case created by the first request.
+model IdempotencyKey {
+  id         String   @id @default(cuid())
+  preparerId String
+  scope      String // the key's sandbox desk (cases are only visible inside it)
+  key        String
+  bodyHash   String
+  caseId     String?
+  createdAt  DateTime @default(now())
+
+  @@unique([preparerId, scope, key])
+}
+
+/// Quarantined reader results cached by document SHA-256 (the same bytes are never read twice).
+model ReaderCache {
+  sha256    String   @id
+  kind      String // IRS_ACK
+  data      String // JSON extraction
+  model     String
+  createdAt DateTime @default(now())
+}

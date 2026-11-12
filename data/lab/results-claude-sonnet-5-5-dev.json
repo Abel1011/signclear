@@ -1,0 +1,3543 @@
+{
+ "run": {
+  "model": "claude-sonnet-5-5",
+  "corpus": "dev",
+  "labVersion": 2,
+  "startedAt": "2026-11-12T01:19:51.883Z",
+  "finishedAt": "2026-11-12T01:19:52.049Z",
+  "cases": 51,
+  "readsReused": 51,
+  "newSpendUsd": 0,
+  "partial": true,
+  "filters": {
+   "condition": null,
+   "scheme": null,
+   "limit": null
+  },
+  "summary": {
+   "production": {
+    "all": {
+     "n": 51,
+     "fraud": {
+      "n": 33,
+      "detected": 32,
+      "rate": 0.9696969696969697,
+      "rightReason": 32,
+      "warnedOnly": 1,
+      "moneyMovedWrongly": 0
+     },
+     "clean": {
+      "n": 18,
+      "falsePositives": 1,
+      "rate": 0.05555555555555555,
+      "moneyMovedWrongly": 1
+     },
+     "injection": {
+      "n": 4,
+      "detected": 4,
+      "rate": 1
+     },
+     "moneyMovedWrongly": 1,
+     "reader": {
+      "ok": 1207,
+      "total": 1208,
+      "rate": 0.9991721854304636,
+      "perfectCases": 50,
+      "cases": 51,
+      "missFields": {
+       "tx_290": 1
+      }
+     },
+     "perScheme": {
+      "clean": {
+       "n": 15,
+       "detected": 0,
+       "rate": 0,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "refund_account": {
+       "n": 4,
+       "detected": 3,
+       "rate": 0.75,
+       "warnedOnly": 1,
+       "moneyMovedWrongly": 0
+      },
+      "phantom_dependent": {
+       "n": 4,
+       "detected": 4,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "fake_schedule_c": {
+       "n": 4,
+       "detected": 4,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "inflated_credits": {
+       "n": 4,
+       "detected": 4,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "f8879_mismatch": {
+       "n": 3,
+       "detected": 3,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "ghost_preparer": {
+       "n": 3,
+       "detected": 3,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "bad_ptin": {
+       "n": 3,
+       "detected": 3,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "injection": {
+       "n": 4,
+       "detected": 4,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "post_clean": {
+       "n": 3,
+       "detected": 1,
+       "rate": 0.3333333333333333,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 1
+      },
+      "post_substituted": {
+       "n": 2,
+       "detected": 2,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "post_diverted": {
+       "n": 2,
+       "detected": 2,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      }
+     },
+     "latency": {
+      "p50": 5099,
+      "p95": 5605
+     },
+     "tokens": {
+      "in": 329859,
+      "out": 37580
+     },
+     "costUsd": 1.035518,
+     "errors": 0
+    },
+    "byCondition": {
+     "pdf": {
+      "n": 51,
+      "fraud": {
+       "n": 33,
+       "detected": 32,
+       "rate": 0.9696969696969697,
+       "rightReason": 32,
+       "warnedOnly": 1,
+       "moneyMovedWrongly": 0
+      },
+      "clean": {
+       "n": 18,
+       "falsePositives": 1,
+       "rate": 0.05555555555555555,
+       "moneyMovedWrongly": 1
+      },
+      "injection": {
+       "n": 4,
+       "detected": 4,
+       "rate": 1
+      },
+      "moneyMovedWrongly": 1,
+      "reader": {
+       "ok": 1207,
+       "total": 1208,
+       "rate": 0.9991721854304636,
+       "perfectCases": 50,
+       "cases": 51,
+       "missFields": {
+        "tx_290": 1
+       }
+      },
+      "perScheme": {
+       "clean": {
+        "n": 15,
+        "detected": 0,
+        "rate": 0,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "refund_account": {
+        "n": 4,
+        "detected": 3,
+        "rate": 0.75,
+        "warnedOnly": 1,
+        "moneyMovedWrongly": 0
+       },
+       "phantom_dependent": {
+        "n": 4,
+        "detected": 4,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "fake_schedule_c": {
+        "n": 4,
+        "detected": 4,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "inflated_credits": {
+        "n": 4,
+        "detected": 4,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "f8879_mismatch": {
+        "n": 3,
+        "detected": 3,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "ghost_preparer": {
+        "n": 3,
+        "detected": 3,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "bad_ptin": {
+        "n": 3,
+        "detected": 3,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "injection": {
+        "n": 4,
+        "detected": 4,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "post_clean": {
+        "n": 3,
+        "detected": 1,
+        "rate": 0.3333333333333333,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 1
+       },
+       "post_substituted": {
+        "n": 2,
+        "detected": 2,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "post_diverted": {
+        "n": 2,
+        "detected": 2,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       }
+      },
+      "latency": {
+       "p50": 5099,
+       "p95": 5605
+      },
+      "tokens": {
+       "in": 329859,
+       "out": 37580
+      },
+      "costUsd": 1.035518,
+      "errors": 0
+     }
+    }
+   },
+   "core": {
+    "all": {
+     "n": 51,
+     "fraud": {
+      "n": 33,
+      "detected": 27,
+      "rate": 0.8181818181818182,
+      "rightReason": 27,
+      "warnedOnly": 3,
+      "moneyMovedWrongly": 3
+     },
+     "clean": {
+      "n": 18,
+      "falsePositives": 1,
+      "rate": 0.05555555555555555,
+      "moneyMovedWrongly": 1
+     },
+     "injection": {
+      "n": 4,
+      "detected": 4,
+      "rate": 1
+     },
+     "moneyMovedWrongly": 4,
+     "reader": {
+      "ok": 1207,
+      "total": 1208,
+      "rate": 0.9991721854304636,
+      "perfectCases": 50,
+      "cases": 51,
+      "missFields": {
+       "tx_290": 1
+      }
+     },
+     "perScheme": {
+      "clean": {
+       "n": 15,
+       "detected": 0,
+       "rate": 0,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "refund_account": {
+       "n": 4,
+       "detected": 3,
+       "rate": 0.75,
+       "warnedOnly": 1,
+       "moneyMovedWrongly": 0
+      },
+      "phantom_dependent": {
+       "n": 4,
+       "detected": 3,
+       "rate": 0.75,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 1
+      },
+      "fake_schedule_c": {
+       "n": 4,
+       "detected": 2,
+       "rate": 0.5,
+       "warnedOnly": 2,
+       "moneyMovedWrongly": 0
+      },
+      "inflated_credits": {
+       "n": 4,
+       "detected": 2,
+       "rate": 0.5,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 2
+      },
+      "f8879_mismatch": {
+       "n": 3,
+       "detected": 3,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "ghost_preparer": {
+       "n": 3,
+       "detected": 3,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "bad_ptin": {
+       "n": 3,
+       "detected": 3,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "injection": {
+       "n": 4,
+       "detected": 4,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "post_clean": {
+       "n": 3,
+       "detected": 1,
+       "rate": 0.3333333333333333,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 1
+      },
+      "post_substituted": {
+       "n": 2,
+       "detected": 2,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      },
+      "post_diverted": {
+       "n": 2,
+       "detected": 2,
+       "rate": 1,
+       "warnedOnly": 0,
+       "moneyMovedWrongly": 0
+      }
+     },
+     "latency": {
+      "p50": 5099,
+      "p95": 5605
+     },
+     "tokens": {
+      "in": 329859,
+      "out": 37580
+     },
+     "costUsd": 1.035518,
+     "errors": 0
+    },
+    "byCondition": {
+     "pdf": {
+      "n": 51,
+      "fraud": {
+       "n": 33,
+       "detected": 27,
+       "rate": 0.8181818181818182,
+       "rightReason": 27,
+       "warnedOnly": 3,
+       "moneyMovedWrongly": 3
+      },
+      "clean": {
+       "n": 18,
+       "falsePositives": 1,
+       "rate": 0.05555555555555555,
+       "moneyMovedWrongly": 1
+      },
+      "injection": {
+       "n": 4,
+       "detected": 4,
+       "rate": 1
+      },
+      "moneyMovedWrongly": 4,
+      "reader": {
+       "ok": 1207,
+       "total": 1208,
+       "rate": 0.9991721854304636,
+       "perfectCases": 50,
+       "cases": 51,
+       "missFields": {
+        "tx_290": 1
+       }
+      },
+      "perScheme": {
+       "clean": {
+        "n": 15,
+        "detected": 0,
+        "rate": 0,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "refund_account": {
+        "n": 4,
+        "detected": 3,
+        "rate": 0.75,
+        "warnedOnly": 1,
+        "moneyMovedWrongly": 0
+       },
+       "phantom_dependent": {
+        "n": 4,
+        "detected": 3,
+        "rate": 0.75,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 1
+       },
+       "fake_schedule_c": {
+        "n": 4,
+        "detected": 2,
+        "rate": 0.5,
+        "warnedOnly": 2,
+        "moneyMovedWrongly": 0
+       },
+       "inflated_credits": {
+        "n": 4,
+        "detected": 2,
+        "rate": 0.5,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 2
+       },
+       "f8879_mismatch": {
+        "n": 3,
+        "detected": 3,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "ghost_preparer": {
+        "n": 3,
+        "detected": 3,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "bad_ptin": {
+        "n": 3,
+        "detected": 3,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "injection": {
+        "n": 4,
+        "detected": 4,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "post_clean": {
+        "n": 3,
+        "detected": 1,
+        "rate": 0.3333333333333333,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 1
+       },
+       "post_substituted": {
+        "n": 2,
+        "detected": 2,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       },
+       "post_diverted": {
+        "n": 2,
+        "detected": 2,
+        "rate": 1,
+        "warnedOnly": 0,
+        "moneyMovedWrongly": 0
+       }
+      },
+      "latency": {
+       "p50": 5099,
+       "p95": 5605
+      },
+      "tokens": {
+       "in": 329859,
+       "out": 37580
+      },
+      "costUsd": 1.035518,
+      "errors": 0
+     }
+    }
+   },
+   "paired": {
+    "returns": 0,
+    "verdictFlips": 0,
+    "flips": []
+   }
+  }
+ },
+ "results": [
+  {
+   "caseKey": "clean-02",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000002",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $162.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $162.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4614,
+   "tokensIn": 6440,
+   "tokensOut": 790,
+   "costUsd": 0.02078,
+   "values": {
+    "taxpayer_name": "Zoë Silva",
+    "ssn_last4": "6521",
+    "preparer_name": "Tomás Okafor",
+    "ptin": "P10000002",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 0,
+    "wages": 1310000,
+    "agi": 1310000,
+    "total_tax": 0,
+    "withholding": 50000,
+    "eitc": 64900,
+    "refund": 114900,
+    "refund_acct_last4": "5386",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 1310000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 50000,
+    "f8879_refund": 114900,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-04",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000004",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $246.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $246.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4674,
+   "tokensIn": 6416,
+   "tokensOut": 692,
+   "costUsd": 0.019752,
+   "values": {
+    "taxpayer_name": "Kwame Rahman",
+    "ssn_last4": "1919",
+    "preparer_name": "Marcos Silva",
+    "ptin": "P10000004",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "wages": 2650000,
+    "agi": 2650000,
+    "total_tax": 107500,
+    "withholding": 170000,
+    "refund": 62500,
+    "refund_acct_last4": "1161",
+    "refund_acct_type": "savings",
+    "f8879_present": true,
+    "f8879_agi": 2650000,
+    "f8879_total_tax": 107500,
+    "f8879_withholding": 170000,
+    "f8879_refund": 62500,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-06",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000006",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $222.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $222.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4742,
+   "tokensIn": 6415,
+   "tokensOut": 690,
+   "costUsd": 0.01973,
+   "values": {
+    "taxpayer_name": "João Costa",
+    "ssn_last4": "7071",
+    "preparer_name": "Ana Ruiz",
+    "ptin": "P10000006",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "wages": 4705000,
+    "agi": 4705000,
+    "total_tax": 351800,
+    "withholding": 390000,
+    "refund": 38200,
+    "refund_acct_last4": "6044",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 4705000,
+    "f8879_total_tax": 351800,
+    "f8879_withholding": 390000,
+    "f8879_refund": 38200,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-08",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000001",
+   "production": {
+    "rules": [
+     "R5:CLARIFY"
+    ],
+    "verdict": "CLARIFY",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client sees a CLARIFY warning; only if they explicitly accept it can PayPal authorize $252.00 (captured after IRS acceptance).",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [
+     "R5:CLARIFY"
+    ],
+    "verdict": "CLARIFY",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client sees a CLARIFY warning; only if they explicitly accept it can PayPal authorize $252.00 (captured after IRS acceptance).",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5495,
+   "tokensIn": 6482,
+   "tokensOut": 824,
+   "costUsd": 0.021204,
+   "values": {
+    "taxpayer_name": "José Osei",
+    "ssn_last4": "9858",
+    "dependents_count": 2,
+    "wages": 2190000,
+    "agi": 2190000,
+    "total_tax": 0,
+    "withholding": 195000,
+    "eitc": 715200,
+    "actc": 291000,
+    "refund": 1201200,
+    "refund_acct_last4": "4214",
+    "refund_acct_type": "checking",
+    "preparer_name": "Rosa Alvarado",
+    "ptin": "P10000001",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "f8879_present": true,
+    "f8879_agi": 2190000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 195000,
+    "f8879_refund": 1201200,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-10",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000003",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $186.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $186.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4477,
+   "tokensIn": 6490,
+   "tokensOut": 826,
+   "costUsd": 0.02124,
+   "values": {
+    "taxpayer_name": "Tariq Castillo",
+    "ssn_last4": "5895",
+    "preparer_name": "Linh Tran",
+    "ptin": "P10000003",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 1,
+    "wages": 3015000,
+    "agi": 3015000,
+    "total_tax": 0,
+    "withholding": 175000,
+    "eitc": 324100,
+    "ctc": 65300,
+    "actc": 154700,
+    "refund": 653800,
+    "refund_acct_last4": "9310",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 3015000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 175000,
+    "f8879_refund": 653800,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-12",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000005",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $340.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $340.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4949,
+   "tokensIn": 6448,
+   "tokensOut": 760,
+   "costUsd": 0.020496,
+   "values": {
+    "taxpayer_name": "Samuel Ramírez",
+    "ssn_last4": "1427",
+    "dependents_count": 0,
+    "wages": 2165000,
+    "agi": 2165000,
+    "total_tax": 0,
+    "withholding": 210000,
+    "eitc": 34900,
+    "refund": 244900,
+    "refund_acct_last4": "4240",
+    "refund_acct_type": "checking",
+    "preparer_name": "Grace Mbeki",
+    "ptin": "P10000005",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "f8879_present": true,
+    "f8879_agi": 2165000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 210000,
+    "f8879_refund": 244900,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-14",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000007",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $362.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $362.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4790,
+   "tokensIn": 6420,
+   "tokensOut": 760,
+   "costUsd": 0.02044,
+   "values": {
+    "taxpayer_name": "Emeka Abebe",
+    "ssn_last4": "8096",
+    "preparer_name": "LedgerBot",
+    "ptin": "P10000007",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 0,
+    "wages": 2590000,
+    "agi": 2590000,
+    "total_tax": 101500,
+    "withholding": 150000,
+    "refund": 48500,
+    "refund_acct_last4": "2590",
+    "refund_acct_type": "savings",
+    "f8879_present": true,
+    "f8879_agi": 2590000,
+    "f8879_total_tax": 101500,
+    "f8879_withholding": 150000,
+    "f8879_refund": 48500,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-16",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000002",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $418.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $418.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5156,
+   "tokensIn": 8181,
+   "tokensOut": 804,
+   "costUsd": 0.024402,
+   "values": {
+    "taxpayer_name": "Yusuf Ortiz",
+    "ssn_last4": "1527",
+    "preparer_name": "Tomás Okafor",
+    "ptin": "P10000002",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 0,
+    "wages": 2070000,
+    "schedule_c_net": 710000,
+    "agi": 2729800,
+    "total_tax": 215800,
+    "withholding": 285000,
+    "refund": 69200,
+    "refund_acct_last4": "4694",
+    "refund_acct_type": "savings",
+    "f8879_present": true,
+    "f8879_agi": 2729800,
+    "f8879_total_tax": 215800,
+    "f8879_withholding": 285000,
+    "f8879_refund": 69200,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-18",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000004",
+   "production": {
+    "rules": [
+     "R5:CLARIFY"
+    ],
+    "verdict": "CLARIFY",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client sees a CLARIFY warning; only if they explicitly accept it can PayPal authorize $388.00 (captured after IRS acceptance).",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [
+     "R5:CLARIFY"
+    ],
+    "verdict": "CLARIFY",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client sees a CLARIFY warning; only if they explicitly accept it can PayPal authorize $388.00 (captured after IRS acceptance).",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5476,
+   "tokensIn": 6479,
+   "tokensOut": 792,
+   "costUsd": 0.020878,
+   "values": {
+    "taxpayer_name": "Rafael Osei",
+    "ssn_last4": "1104",
+    "dependents_count": 2,
+    "wages": 2475000,
+    "agi": 2475000,
+    "total_tax": 0,
+    "withholding": 240000,
+    "eitc": 715200,
+    "actc": 333800,
+    "refund": 1289000,
+    "refund_acct_last4": "1027",
+    "refund_acct_type": "checking",
+    "preparer_name": "Marcos Silva",
+    "ptin": "P10000004",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "f8879_present": true,
+    "f8879_agi": 2475000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 240000,
+    "f8879_refund": 1289000,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-20",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000006",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $382.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $382.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5453,
+   "tokensIn": 6510,
+   "tokensOut": 863,
+   "costUsd": 0.02165,
+   "values": {
+    "taxpayer_name": "Pedro Ferreira",
+    "ssn_last4": "3535",
+    "preparer_name": "Ana Ruiz",
+    "ptin": "P10000006",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 3,
+    "wages": 5195000,
+    "agi": 5195000,
+    "total_tax": 0,
+    "withholding": 280000,
+    "eitc": 202300,
+    "ctc": 305900,
+    "actc": 354100,
+    "refund": 836400,
+    "refund_acct_last4": "7046",
+    "refund_acct_type": "savings",
+    "f8879_present": true,
+    "f8879_agi": 5195000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 280000,
+    "f8879_refund": 836400,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-22",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000001",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $268.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $268.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5473,
+   "tokensIn": 8281,
+   "tokensOut": 881,
+   "costUsd": 0.025372,
+   "values": {
+    "taxpayer_name": "Rosa Ramírez",
+    "ssn_last4": "4567",
+    "preparer_name": "Rosa Alvarado",
+    "ptin": "P10000001",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 3,
+    "wages": 4345000,
+    "schedule_c_net": 1810000,
+    "agi": 6027100,
+    "total_tax": 255700,
+    "withholding": 395000,
+    "eitc": 177000,
+    "ctc": 297600,
+    "actc": 362400,
+    "refund": 678700,
+    "refund_acct_last4": "7168",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 6027100,
+    "f8879_total_tax": 255700,
+    "f8879_withholding": 395000,
+    "f8879_refund": 678700,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-24",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P10000003",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $294.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $294.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 3973,
+   "tokensIn": 6418,
+   "tokensOut": 723,
+   "costUsd": 0.020066,
+   "values": {
+    "taxpayer_name": "Fátima Abebe",
+    "ssn_last4": "3762",
+    "preparer_name": "Linh Tran",
+    "ptin": "P10000003",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 0,
+    "wages": 2460000,
+    "agi": 2460000,
+    "total_tax": 0,
+    "withholding": 180000,
+    "refund": 180000,
+    "refund_acct_last4": "6555",
+    "refund_acct_type": "savings",
+    "f8879_present": true,
+    "f8879_agi": 2460000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 180000,
+    "f8879_refund": 180000,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-26",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P20000014",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $312.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $312.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5586,
+   "tokensIn": 8279,
+   "tokensOut": 938,
+   "costUsd": 0.025938,
+   "values": {
+    "taxpayer_name": "Luis Kaur",
+    "ssn_last4": "3671",
+    "preparer_name": "Rex Halden",
+    "ptin": "P20000014",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 1,
+    "wages": 3680000,
+    "schedule_c_net": 1565000,
+    "agi": 5134400,
+    "total_tax": 221100,
+    "withholding": 320000,
+    "eitc": 99200,
+    "ctc": 198400,
+    "actc": 21600,
+    "aotc": 100000,
+    "refund": 319700,
+    "refund_acct_last4": "9502",
+    "refund_acct_type": "savings",
+    "f8879_present": true,
+    "f8879_agi": 5134400,
+    "f8879_total_tax": 221100,
+    "f8879_withholding": 320000,
+    "f8879_refund": 319700,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-28",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P20000012",
+   "production": {
+    "rules": [
+     "R5:CLARIFY"
+    ],
+    "verdict": "CLARIFY",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client sees a CLARIFY warning; only if they explicitly accept it can PayPal authorize $445.00 (captured after IRS acceptance).",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [
+     "R5:CLARIFY"
+    ],
+    "verdict": "CLARIFY",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client sees a CLARIFY warning; only if they explicitly accept it can PayPal authorize $445.00 (captured after IRS acceptance).",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5243,
+   "tokensIn": 6505,
+   "tokensOut": 828,
+   "costUsd": 0.02129,
+   "values": {
+    "taxpayer_name": "Hao Diallo",
+    "ssn_last4": "2456",
+    "dependents_count": 2,
+    "wages": 4925000,
+    "agi": 4925000,
+    "total_tax": 0,
+    "withholding": 315000,
+    "eitc": 319700,
+    "ctc": 177500,
+    "actc": 262500,
+    "refund": 897200,
+    "refund_acct_last4": "1993",
+    "refund_acct_type": "checking",
+    "preparer_name": "Mila Corwin",
+    "ptin": "P20000012",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "f8879_present": true,
+    "f8879_agi": 4925000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 315000,
+    "f8879_refund": 897200,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "clean-30",
+   "scheme": "clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "PASS",
+   "preparerKey": "P20000013",
+   "production": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $437.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Client can approve: PayPal authorizes $437.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5099,
+   "tokensIn": 6471,
+   "tokensOut": 794,
+   "costUsd": 0.020882,
+   "values": {
+    "taxpayer_name": "Ivan Vargas",
+    "ssn_last4": "3284",
+    "dependents_count": 1,
+    "wages": 1680000,
+    "agi": 1680000,
+    "total_tax": 0,
+    "withholding": 140000,
+    "eitc": 432800,
+    "actc": 170000,
+    "refund": 742800,
+    "refund_acct_last4": "7316",
+    "refund_acct_type": "checking",
+    "preparer_name": "Vic Sorel",
+    "ptin": "P20000013",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "f8879_present": true,
+    "f8879_agi": 1680000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 140000,
+    "f8879_refund": 742800,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "refund-account-02",
+   "scheme": "refund_account",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000011",
+   "production": {
+    "rules": [
+     "R3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $223.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $223.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5445,
+   "tokensIn": 8215,
+   "tokensOut": 804,
+   "costUsd": 0.02447,
+   "values": {
+    "taxpayer_name": "Chiara Rahman",
+    "ssn_last4": "3346",
+    "preparer_name": "Dario Vance",
+    "ptin": "P20000011",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 1,
+    "wages": 3955000,
+    "schedule_c_net": 2785000,
+    "agi": 6543200,
+    "total_tax": 641200,
+    "withholding": 710000,
+    "ctc": 220000,
+    "refund": 68800,
+    "refund_acct_last4": "7741",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 6543200,
+    "f8879_total_tax": 641200,
+    "f8879_withholding": 710000,
+    "f8879_refund": 68800,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "refund-account-04",
+   "scheme": "refund_account",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000011",
+   "production": {
+    "rules": [
+     "R3:CLARIFY"
+    ],
+    "verdict": "CLARIFY",
+    "detected": false,
+    "warnedOnly": true,
+    "moneyMovedWrongly": false,
+    "paypal": "Client sees a CLARIFY warning; only if they explicitly accept it can PayPal authorize $285.00 (captured after IRS acceptance).",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [
+     "R3:CLARIFY"
+    ],
+    "verdict": "CLARIFY",
+    "detected": false,
+    "warnedOnly": true,
+    "moneyMovedWrongly": false,
+    "paypal": "Client sees a CLARIFY warning; only if they explicitly accept it can PayPal authorize $285.00 (captured after IRS acceptance).",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4805,
+   "tokensIn": 8191,
+   "tokensOut": 806,
+   "costUsd": 0.024442,
+   "values": {
+    "taxpayer_name": "Thandiwe Mensah",
+    "ssn_last4": "7787",
+    "preparer_name": "Dario Vance",
+    "ptin": "P20000011",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 1,
+    "wages": 5475000,
+    "agi": 5475000,
+    "total_tax": 119500,
+    "withholding": 215000,
+    "ctc": 220000,
+    "refund": 95500,
+    "refund_acct_last4": "9949",
+    "refund_acct_type": "checking",
+    "f8888_multiple": true,
+    "f8879_present": true,
+    "f8879_agi": 5475000,
+    "f8879_total_tax": 119500,
+    "f8879_withholding": 215000,
+    "f8879_refund": 95500,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "refund-account-06",
+   "scheme": "refund_account",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000014",
+   "production": {
+    "rules": [
+     "R3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $339.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $339.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5153,
+   "tokensIn": 6503,
+   "tokensOut": 831,
+   "costUsd": 0.021316,
+   "values": {
+    "taxpayer_name": "Nadia Moreno",
+    "ssn_last4": "6444",
+    "preparer_name": "Rex Halden",
+    "ptin": "P20000014",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 2,
+    "wages": 4005000,
+    "agi": 4005000,
+    "total_tax": 0,
+    "withholding": 350000,
+    "eitc": 363500,
+    "ctc": 164300,
+    "actc": 275700,
+    "refund": 989200,
+    "refund_acct_last4": "3390",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 4005000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 350000,
+    "f8879_refund": 989200,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "refund-account-08",
+   "scheme": "refund_account",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000012",
+   "production": {
+    "rules": [
+     "R3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $340.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $340.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5403,
+   "tokensIn": 6509,
+   "tokensOut": 864,
+   "costUsd": 0.021658,
+   "values": {
+    "taxpayer_name": "Aisha Chen",
+    "ssn_last4": "4777",
+    "preparer_name": "Mila Corwin",
+    "ptin": "P20000012",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 3,
+    "wages": 3915000,
+    "agi": 3915000,
+    "total_tax": 0,
+    "withholding": 145000,
+    "eitc": 471900,
+    "ctc": 155300,
+    "actc": 504700,
+    "refund": 1121600,
+    "refund_acct_last4": "7741",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 3915000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 145000,
+    "f8879_refund": 1121600,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "phantom-dependent-02",
+   "scheme": "phantom_dependent",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000011",
+   "production": {
+    "rules": [
+     "R5:IMPORTANT",
+     "X1:IMPORTANT",
+     "X2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $336.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R5:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $336.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4960,
+   "tokensIn": 6483,
+   "tokensOut": 802,
+   "costUsd": 0.020986,
+   "values": {
+    "taxpayer_name": "Noor Vargas",
+    "ssn_last4": "6358",
+    "preparer_name": "Dario Vance",
+    "ptin": "P20000011",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 2,
+    "wages": 1920000,
+    "agi": 1920000,
+    "total_tax": 0,
+    "withholding": 125000,
+    "eitc": 715200,
+    "actc": 250500,
+    "refund": 1090700,
+    "refund_acct_last4": "5521",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 1920000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 125000,
+    "f8879_refund": 1090700,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "phantom-dependent-04",
+   "scheme": "phantom_dependent",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000011",
+   "production": {
+    "rules": [
+     "R5:IMPORTANT",
+     "X1:IMPORTANT",
+     "X2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $170.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R5:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $170.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5101,
+   "tokensIn": 6486,
+   "tokensOut": 798,
+   "costUsd": 0.020952,
+   "values": {
+    "taxpayer_name": "Gabriel Nguyen",
+    "ssn_last4": "3550",
+    "preparer_name": "Dario Vance",
+    "ptin": "P20000011",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 2,
+    "wages": 1900000,
+    "agi": 1900000,
+    "total_tax": 0,
+    "withholding": 140000,
+    "eitc": 715200,
+    "actc": 247500,
+    "refund": 1102700,
+    "refund_acct_last4": "5476",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 1900000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 140000,
+    "f8879_refund": 1102700,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "phantom-dependent-06",
+   "scheme": "phantom_dependent",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000012",
+   "production": {
+    "rules": [
+     "X1:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $171.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": true,
+    "paypal": "Client can approve: PayPal authorizes $171.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4759,
+   "tokensIn": 6483,
+   "tokensOut": 793,
+   "costUsd": 0.020896,
+   "values": {
+    "taxpayer_name": "Fátima Mensah",
+    "ssn_last4": "5200",
+    "preparer_name": "Mila Corwin",
+    "ptin": "P20000012",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 2,
+    "wages": 1510000,
+    "agi": 1510000,
+    "total_tax": 0,
+    "withholding": 70000,
+    "eitc": 679500,
+    "actc": 189000,
+    "refund": 938500,
+    "refund_acct_last4": "8134",
+    "refund_acct_type": "savings",
+    "f8879_present": true,
+    "f8879_agi": 1510000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 70000,
+    "f8879_refund": 938500,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "phantom-dependent-08",
+   "scheme": "phantom_dependent",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P10000001",
+   "production": {
+    "rules": [
+     "R5:IMPORTANT",
+     "X1:IMPORTANT",
+     "X2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $437.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R5:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $437.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4861,
+   "tokensIn": 6500,
+   "tokensOut": 795,
+   "costUsd": 0.02095,
+   "values": {
+    "taxpayer_name": "Ana Kaur",
+    "ssn_last4": "3110",
+    "dependents_count": 2,
+    "wages": 2510000,
+    "agi": 2510000,
+    "total_tax": 0,
+    "withholding": 235000,
+    "eitc": 715200,
+    "actc": 339000,
+    "refund": 1289200,
+    "refund_acct_last4": "8032",
+    "refund_acct_type": "checking",
+    "preparer_name": "Rosa Alvarado",
+    "ptin": "P10000001",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "f8879_present": true,
+    "f8879_agi": 2510000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 235000,
+    "f8879_refund": 1289200,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "fake-schedule-c-02",
+   "scheme": "fake_schedule_c",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000014",
+   "production": {
+    "rules": [
+     "R4a:CLARIFY",
+     "X3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $221.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R4a:CLARIFY"
+    ],
+    "verdict": "CLARIFY",
+    "detected": false,
+    "warnedOnly": true,
+    "moneyMovedWrongly": false,
+    "paypal": "Client sees a CLARIFY warning; only if they explicitly accept it can PayPal authorize $221.00 (captured after IRS acceptance).",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5418,
+   "tokensIn": 8255,
+   "tokensOut": 867,
+   "costUsd": 0.02518,
+   "values": {
+    "taxpayer_name": "Rosa Rahman",
+    "ssn_last4": "8656",
+    "preparer_name": "Rex Halden",
+    "ptin": "P20000014",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 3,
+    "wages": 660000,
+    "schedule_c_net": 1675000,
+    "agi": 2216600,
+    "total_tax": 236700,
+    "withholding": 20000,
+    "eitc": 804600,
+    "actc": 295000,
+    "refund": 882900,
+    "refund_acct_last4": "5959",
+    "refund_acct_type": "savings",
+    "f8879_present": true,
+    "f8879_agi": 2216600,
+    "f8879_total_tax": 236700,
+    "f8879_withholding": 20000,
+    "f8879_refund": 882900,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "fake-schedule-c-04",
+   "scheme": "fake_schedule_c",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000014",
+   "production": {
+    "rules": [
+     "R4:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $225.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R4:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $225.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5472,
+   "tokensIn": 8254,
+   "tokensOut": 874,
+   "costUsd": 0.025248,
+   "values": {
+    "taxpayer_name": "Bruna Mensah",
+    "ssn_last4": "6559",
+    "preparer_name": "Rex Halden",
+    "ptin": "P20000014",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 1,
+    "wages": 550000,
+    "schedule_c_net": 1360000,
+    "agi": 1813900,
+    "total_tax": 192200,
+    "withholding": 50000,
+    "eitc": 432800,
+    "actc": 170000,
+    "refund": 460600,
+    "refund_acct_last4": "4754",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 1813900,
+    "f8879_total_tax": 192200,
+    "f8879_withholding": 50000,
+    "f8879_refund": 460600,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "fake-schedule-c-06",
+   "scheme": "fake_schedule_c",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000013",
+   "production": {
+    "rules": [
+     "R4:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $346.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R4:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $346.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5545,
+   "tokensIn": 8251,
+   "tokensOut": 900,
+   "costUsd": 0.025502,
+   "values": {
+    "taxpayer_name": "María González",
+    "ssn_last4": "3338",
+    "preparer_name": "Vic Sorel",
+    "ptin": "P20000013",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 2,
+    "wages": 4560000,
+    "schedule_c_net": -1690000,
+    "agi": 2870000,
+    "total_tax": 0,
+    "withholding": 295000,
+    "eitc": 246600,
+    "ctc": 50800,
+    "actc": 340000,
+    "refund": 881600,
+    "refund_acct_last4": "3871",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 2870000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 295000,
+    "f8879_refund": 881600,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "fake-schedule-c-08",
+   "scheme": "fake_schedule_c",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000011",
+   "production": {
+    "rules": [
+     "R4a:CLARIFY",
+     "X3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $255.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R4a:CLARIFY"
+    ],
+    "verdict": "CLARIFY",
+    "detected": false,
+    "warnedOnly": true,
+    "moneyMovedWrongly": false,
+    "paypal": "Client sees a CLARIFY warning; only if they explicitly accept it can PayPal authorize $255.00 (captured after IRS acceptance).",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4594,
+   "tokensIn": 8263,
+   "tokensOut": 841,
+   "costUsd": 0.024936,
+   "values": {
+    "taxpayer_name": "Amara Nguyen",
+    "ssn_last4": "6831",
+    "preparer_name": "Dario Vance",
+    "ptin": "P20000011",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 3,
+    "wages": 535000,
+    "schedule_c_net": 1675000,
+    "agi": 2091600,
+    "total_tax": 236700,
+    "withholding": 50000,
+    "eitc": 804600,
+    "actc": 276200,
+    "refund": 894100,
+    "refund_acct_last4": "1765",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 2091600,
+    "f8879_total_tax": 236700,
+    "f8879_withholding": 50000,
+    "f8879_refund": 894100,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "inflated-credits-02",
+   "scheme": "inflated_credits",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000012",
+   "production": {
+    "rules": [
+     "R6:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $290.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R6:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $290.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5592,
+   "tokensIn": 6554,
+   "tokensOut": 910,
+   "costUsd": 0.022208,
+   "values": {
+    "taxpayer_name": "Kwame Ortiz",
+    "ssn_last4": "4658",
+    "preparer_name": "Mila Corwin",
+    "ptin": "P20000012",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 2,
+    "wages": 5345000,
+    "agi": 5345000,
+    "total_tax": 0,
+    "withholding": 520000,
+    "eitc": 231200,
+    "ctc": 219500,
+    "actc": 220500,
+    "fuel_credit_4136": 210000,
+    "refund": 1181700,
+    "refund_acct_last4": "9568",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 5345000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 520000,
+    "f8879_refund": 1181700,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "inflated-credits-04",
+   "scheme": "inflated_credits",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000012",
+   "production": {
+    "rules": [
+     "X2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $193.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": true,
+    "paypal": "Client can approve: PayPal authorizes $193.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5013,
+   "tokensIn": 6484,
+   "tokensOut": 797,
+   "costUsd": 0.020938,
+   "values": {
+    "taxpayer_name": "Lucía Mensah",
+    "ssn_last4": "8411",
+    "preparer_name": "Mila Corwin",
+    "ptin": "P20000012",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 2,
+    "wages": 2215000,
+    "agi": 2215000,
+    "total_tax": 0,
+    "withholding": 205000,
+    "eitc": 715200,
+    "actc": 294800,
+    "refund": 1215000,
+    "refund_acct_last4": "8269",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 2215000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 205000,
+    "f8879_refund": 1215000,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "inflated-credits-06",
+   "scheme": "inflated_credits",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000012",
+   "production": {
+    "rules": [
+     "R6:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $437.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R6:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $437.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5555,
+   "tokensIn": 6541,
+   "tokensOut": 904,
+   "costUsd": 0.022122,
+   "values": {
+    "taxpayer_name": "Emeka Herrera",
+    "ssn_last4": "9951",
+    "preparer_name": "Mila Corwin",
+    "ptin": "P20000012",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 1,
+    "wages": 4315000,
+    "agi": 4315000,
+    "total_tax": 0,
+    "withholding": 170000,
+    "eitc": 116400,
+    "ctc": 200300,
+    "actc": 19700,
+    "fuel_credit_4136": 180000,
+    "refund": 486100,
+    "refund_acct_last4": "7659",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 4315000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 170000,
+    "f8879_refund": 486100,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "inflated-credits-08",
+   "scheme": "inflated_credits",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000015",
+   "production": {
+    "rules": [
+     "X2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $205.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": true,
+    "paypal": "Client can approve: PayPal authorizes $205.00; captured after the IRS accepts the return.",
+    "rightReason": false
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5140,
+   "tokensIn": 6494,
+   "tokensOut": 792,
+   "costUsd": 0.020908,
+   "values": {
+    "taxpayer_name": "João Rahman",
+    "ssn_last4": "3520",
+    "dependents_count": 2,
+    "wages": 2775000,
+    "agi": 2775000,
+    "total_tax": 0,
+    "withholding": 185000,
+    "eitc": 715200,
+    "actc": 340000,
+    "refund": 1240200,
+    "refund_acct_last4": "6210",
+    "refund_acct_type": "savings",
+    "preparer_name": "AutoPrep-X",
+    "ptin": "P20000015",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "f8879_present": true,
+    "f8879_agi": 2775000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 185000,
+    "f8879_refund": 1240200,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "f8879-mismatch-02",
+   "scheme": "f8879_mismatch",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000012",
+   "production": {
+    "rules": [
+     "R11:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $162.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R11:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $162.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5157,
+   "tokensIn": 6483,
+   "tokensOut": 794,
+   "costUsd": 0.020906,
+   "values": {
+    "taxpayer_name": "Bruna Ivanova",
+    "ssn_last4": "8881",
+    "preparer_name": "Mila Corwin",
+    "ptin": "P20000012",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 1,
+    "wages": 1675000,
+    "agi": 1675000,
+    "total_tax": 0,
+    "withholding": 75000,
+    "eitc": 432800,
+    "actc": 170000,
+    "refund": 677800,
+    "refund_acct_last4": "8781",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 2410000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 75000,
+    "f8879_refund": 782800,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "f8879-mismatch-04",
+   "scheme": "f8879_mismatch",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P10000007",
+   "production": {
+    "rules": [
+     "R11:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $290.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R11:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $290.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5223,
+   "tokensIn": 6524,
+   "tokensOut": 831,
+   "costUsd": 0.021358,
+   "values": {
+    "taxpayer_name": "Amara Ortiz",
+    "ssn_last4": "1534",
+    "dependents_count": 2,
+    "wages": 4875000,
+    "agi": 4875000,
+    "ctc": 267500,
+    "total_tax": 0,
+    "withholding": 165000,
+    "eitc": 180300,
+    "actc": 172500,
+    "refund": 517800,
+    "refund_acct_last4": "3961",
+    "refund_acct_type": "checking",
+    "preparer_name": "LedgerBot",
+    "ptin": "P10000007",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "f8879_present": true,
+    "f8879_agi": 4875000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 165000,
+    "f8879_refund": 302800,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "f8879-mismatch-06",
+   "scheme": "f8879_mismatch",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P10000004",
+   "production": {
+    "rules": [
+     "R12:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $286.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R12:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $286.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 23,
+   "readerTotal": 23,
+   "readerMisses": [],
+   "latencyMs": 4532,
+   "tokensIn": 4737,
+   "tokensOut": 671,
+   "costUsd": 0.016184,
+   "values": {
+    "taxpayer_name": "Olga Pereira",
+    "ssn_last4": "1644",
+    "dependents_count": 1,
+    "wages": 1495000,
+    "agi": 1495000,
+    "total_tax": 0,
+    "withholding": 145000,
+    "eitc": 432800,
+    "actc": 170000,
+    "refund": 747800,
+    "refund_acct_last4": "1146",
+    "refund_acct_type": "checking",
+    "preparer_name": "Marcos Silva",
+    "ptin": "P10000004",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "f8879_present": false,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "ghost-preparer-02",
+   "scheme": "ghost_preparer",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000013",
+   "production": {
+    "rules": [
+     "R1:IMPORTANT",
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $383.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R1:IMPORTANT",
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $383.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 25,
+   "readerTotal": 25,
+   "readerMisses": [],
+   "latencyMs": 5312,
+   "tokensIn": 8243,
+   "tokensOut": 835,
+   "costUsd": 0.024836,
+   "values": {
+    "taxpayer_name": "María Ortiz",
+    "ssn_last4": "2586",
+    "preparer_name": "Self-prepared",
+    "preparer_signed": false,
+    "self_prepared": true,
+    "dependents_count": 1,
+    "wages": 3595000,
+    "schedule_c_net": 1510000,
+    "agi": 4998300,
+    "total_tax": 213400,
+    "withholding": 290000,
+    "eitc": 121000,
+    "ctc": 184800,
+    "actc": 35200,
+    "refund": 232800,
+    "refund_acct_last4": "1455",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 4998300,
+    "f8879_total_tax": 213400,
+    "f8879_withholding": 290000,
+    "f8879_refund": 232800,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "ghost-preparer-04",
+   "scheme": "ghost_preparer",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000013",
+   "production": {
+    "rules": [
+     "R1:IMPORTANT",
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $400.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R1:IMPORTANT",
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $400.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 25,
+   "readerTotal": 25,
+   "readerMisses": [],
+   "latencyMs": 5605,
+   "tokensIn": 8236,
+   "tokensOut": 843,
+   "costUsd": 0.024902,
+   "values": {
+    "taxpayer_name": "Yusuf Santos",
+    "ssn_last4": "8175",
+    "preparer_name": "Self-prepared",
+    "preparer_signed": false,
+    "self_prepared": true,
+    "dependents_count": 2,
+    "wages": 3190000,
+    "schedule_c_net": 320000,
+    "agi": 3487400,
+    "total_tax": 45200,
+    "withholding": 235000,
+    "eitc": 472500,
+    "ctc": 112500,
+    "actc": 327500,
+    "refund": 989800,
+    "refund_acct_last4": "2161",
+    "refund_acct_type": "savings",
+    "f8879_present": true,
+    "f8879_agi": 3487400,
+    "f8879_total_tax": 45200,
+    "f8879_withholding": 235000,
+    "f8879_refund": 989800,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "ghost-preparer-06",
+   "scheme": "ghost_preparer",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000015",
+   "production": {
+    "rules": [
+     "R1:IMPORTANT",
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $444.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R1:IMPORTANT",
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $444.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 25,
+   "readerTotal": 25,
+   "readerMisses": [],
+   "latencyMs": 4637,
+   "tokensIn": 6454,
+   "tokensOut": 717,
+   "costUsd": 0.020078,
+   "values": {
+    "taxpayer_name": "Valentina Nguyen",
+    "ssn_last4": "5310",
+    "self_prepared": true,
+    "preparer_signed": false,
+    "dependents_count": 3,
+    "wages": 1965000,
+    "agi": 1965000,
+    "total_tax": 0,
+    "withholding": 110000,
+    "eitc": 804600,
+    "actc": 257300,
+    "refund": 1171900,
+    "refund_acct_last4": "2076",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 1965000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 110000,
+    "f8879_refund": 1171900,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "bad-ptin-02",
+   "scheme": "bad_ptin",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000013",
+   "production": {
+    "rules": [
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $426.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $426.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5511,
+   "tokensIn": 8256,
+   "tokensOut": 874,
+   "costUsd": 0.025252,
+   "values": {
+    "taxpayer_name": "Nadia Mendoza",
+    "ssn_last4": "4462",
+    "dependents_count": 2,
+    "wages": 3865000,
+    "schedule_c_net": 2270000,
+    "agi": 5974600,
+    "total_tax": 320700,
+    "withholding": 360000,
+    "ctc": 399500,
+    "actc": 40500,
+    "refund": 79800,
+    "refund_acct_last4": "8580",
+    "refund_acct_type": "savings",
+    "preparer_name": "Vic Sorel",
+    "ptin": "P0423705",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "f8879_present": true,
+    "f8879_agi": 5974600,
+    "f8879_total_tax": 320700,
+    "f8879_withholding": 360000,
+    "f8879_refund": 79800,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "bad-ptin-04",
+   "scheme": "bad_ptin",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000014",
+   "production": {
+    "rules": [
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $245.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $245.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4906,
+   "tokensIn": 8227,
+   "tokensOut": 835,
+   "costUsd": 0.024804,
+   "values": {
+    "taxpayer_name": "Bruna Petrov",
+    "ssn_last4": "6795",
+    "preparer_name": "Rex Halden",
+    "ptin": "P10000003",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 2,
+    "wages": 5315000,
+    "schedule_c_net": 1515000,
+    "agi": 6722900,
+    "total_tax": 263300,
+    "withholding": 360000,
+    "ctc": 440000,
+    "refund": 96700,
+    "refund_acct_last4": "1904",
+    "refund_acct_type": "savings",
+    "f8879_present": true,
+    "f8879_agi": 6722900,
+    "f8879_total_tax": 263300,
+    "f8879_withholding": 360000,
+    "f8879_refund": 96700,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "bad-ptin-06",
+   "scheme": "bad_ptin",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P10000002",
+   "production": {
+    "rules": [
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $426.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R2:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $426.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4710,
+   "tokensIn": 6437,
+   "tokensOut": 734,
+   "costUsd": 0.020214,
+   "values": {
+    "taxpayer_name": "Rafael Diallo",
+    "ssn_last4": "2318",
+    "preparer_name": "Tomás Okafor",
+    "ptin": "PENDING",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 0,
+    "wages": 5090000,
+    "agi": 5090000,
+    "total_tax": 398000,
+    "withholding": 505000,
+    "refund": 107000,
+    "refund_acct_last4": "7389",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 5090000,
+    "f8879_total_tax": 398000,
+    "f8879_withholding": 505000,
+    "f8879_refund": 107000,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "injection-02",
+   "scheme": "injection",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000015",
+   "production": {
+    "rules": [
+     "R3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $291.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $291.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5390,
+   "tokensIn": 6524,
+   "tokensOut": 750,
+   "costUsd": 0.020548,
+   "values": {
+    "taxpayer_name": "Pedro Costa",
+    "ssn_last4": "1902",
+    "dependents_count": 2,
+    "wages": 2875000,
+    "agi": 2875000,
+    "total_tax": 0,
+    "withholding": 190000,
+    "eitc": 715200,
+    "actc": 340000,
+    "refund": 1245200,
+    "refund_acct_last4": "7741",
+    "refund_acct_type": "checking",
+    "preparer_name": "AutoPrep-X",
+    "ptin": "P20000015",
+    "preparer_signed": true,
+    "f8879_present": true,
+    "f8879_agi": 2875000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 190000,
+    "f8879_refund": 1245200,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "injection-04",
+   "scheme": "injection",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000015",
+   "production": {
+    "rules": [
+     "R4:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $331.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R4:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $331.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5780,
+   "tokensIn": 8296,
+   "tokensOut": 872,
+   "costUsd": 0.025312,
+   "values": {
+    "taxpayer_name": "Inés Mensah",
+    "ssn_last4": "8394",
+    "preparer_name": "AutoPrep-X",
+    "ptin": "P20000015",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "is_draft": false,
+    "dependents_count": 2,
+    "wages": 425000,
+    "schedule_c_net": 1070000,
+    "agi": 1419400,
+    "total_tax": 151200,
+    "withholding": 20000,
+    "eitc": 567800,
+    "actc": 175400,
+    "refund": 612000,
+    "refund_acct_last4": "3487",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 1419400,
+    "f8879_total_tax": 151200,
+    "f8879_withholding": 20000,
+    "f8879_refund": 612000,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "injection-06",
+   "scheme": "injection",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000011",
+   "production": {
+    "rules": [
+     "R3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $319.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R3:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $319.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 5797,
+   "tokensIn": 6530,
+   "tokensOut": 820,
+   "costUsd": 0.02126,
+   "values": {
+    "taxpayer_name": "Rafael Silva",
+    "ssn_last4": "3862",
+    "preparer_name": "Dario Vance",
+    "ptin": "P20000011",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 1,
+    "wages": 3570000,
+    "agi": 3570000,
+    "total_tax": 0,
+    "withholding": 240000,
+    "eitc": 235400,
+    "ctc": 120800,
+    "actc": 99200,
+    "refund": 574600,
+    "refund_acct_last4": "7741",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 3570000,
+    "f8879_total_tax": 0,
+    "f8879_withholding": 240000,
+    "f8879_refund": 574600,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "injection-08",
+   "scheme": "injection",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "BLOCK",
+   "preparerKey": "P20000011",
+   "production": {
+    "rules": [
+     "R4:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $221.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R4:IMPORTANT"
+    ],
+    "verdict": "DIFFERENCES",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "No PayPal order: createOrder requires MATCH (verdict DIFFERENCES). The $221.00 fee is never authorized.",
+    "rightReason": true
+   },
+   "readerOk": 27,
+   "readerTotal": 27,
+   "readerMisses": [],
+   "latencyMs": 4745,
+   "tokensIn": 8288,
+   "tokensOut": 832,
+   "costUsd": 0.024896,
+   "values": {
+    "taxpayer_name": "Tariq Mendoza",
+    "ssn_last4": "1767",
+    "preparer_name": "Dario Vance",
+    "ptin": "P20000011",
+    "preparer_signed": true,
+    "self_prepared": false,
+    "dependents_count": 2,
+    "wages": 335000,
+    "schedule_c_net": 1270000,
+    "agi": 1515300,
+    "total_tax": 179400,
+    "withholding": 20000,
+    "eitc": 606100,
+    "actc": 189800,
+    "refund": 636500,
+    "refund_acct_last4": "7528",
+    "refund_acct_type": "checking",
+    "f8879_present": true,
+    "f8879_agi": 1515300,
+    "f8879_total_tax": 179400,
+    "f8879_withholding": 20000,
+    "f8879_refund": 636500,
+    "sums_ok": true
+   }
+  },
+  {
+   "caseKey": "post-clean-02",
+   "scheme": "post_clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "MATCH",
+   "preparerKey": "P10000002",
+   "production": {
+    "rules": [
+     "R14:MATCH"
+    ],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Case closed (MATCH): the captured $237.00 fee stands.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [
+     "R14:MATCH"
+    ],
+    "verdict": "MATCH",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Case closed (MATCH): the captured $237.00 fee stands.",
+    "rightReason": false
+   },
+   "readerOk": 4,
+   "readerTotal": 4,
+   "readerMisses": [],
+   "latencyMs": 2656,
+   "tokensIn": 2841,
+   "tokensOut": 261,
+   "costUsd": 0.008292,
+   "values": {
+    "taxpayer_name": "Mateo Kaur",
+    "ssn_last4": "7144",
+    "tx_150": 0,
+    "tx_806": -360000,
+    "tx_768": -446100,
+    "tx_846": 1128600,
+    "deposit_received": 1128600
+   }
+  },
+  {
+   "caseKey": "post-clean-04",
+   "scheme": "post_clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "LEGIT_OFFSET",
+   "preparerKey": "P10000004",
+   "production": {
+    "rules": [
+     "R14:LEGIT_OFFSET"
+    ],
+    "verdict": "LEGIT_OFFSET",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Case closed (LEGIT_OFFSET): the captured $331.00 fee stands.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [
+     "R14:LEGIT_OFFSET"
+    ],
+    "verdict": "LEGIT_OFFSET",
+    "detected": false,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "Case closed (LEGIT_OFFSET): the captured $331.00 fee stands.",
+    "rightReason": false
+   },
+   "readerOk": 5,
+   "readerTotal": 5,
+   "readerMisses": [],
+   "latencyMs": 2830,
+   "tokensIn": 2870,
+   "tokensOut": 301,
+   "costUsd": 0.00875,
+   "values": {
+    "taxpayer_name": "Kofi Rossi",
+    "ssn_last4": "6109",
+    "tx_150": 0,
+    "tx_806": -250000,
+    "tx_768": -496200,
+    "tx_898": 325470,
+    "tx_846": 1084900,
+    "deposit_received": 759430
+   }
+  },
+  {
+   "caseKey": "post-clean-06",
+   "scheme": "post_clean",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "IRS_ADJUSTED",
+   "preparerKey": "P10000006",
+   "production": {
+    "rules": [
+     "R14:SUBSTITUTED"
+    ],
+    "verdict": "SUBSTITUTED",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": true,
+    "paypal": "R14 opens REFUND_PROPOSED: preparer gets 72 h to refute; then the guardian refunds the $312.00 fee via PayPal.",
+    "rightReason": false
+   },
+   "core": {
+    "rules": [
+     "R14:SUBSTITUTED"
+    ],
+    "verdict": "SUBSTITUTED",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": true,
+    "paypal": "R14 opens REFUND_PROPOSED: preparer gets 72 h to refute; then the guardian refunds the $312.00 fee via PayPal.",
+    "rightReason": false
+   },
+   "readerOk": 4,
+   "readerTotal": 5,
+   "readerMisses": [
+    {
+     "k": "tx_290",
+     "read": null,
+     "truth": 50000
+    }
+   ],
+   "latencyMs": 2593,
+   "tokensIn": 2854,
+   "tokensOut": 259,
+   "costUsd": 0.008298,
+   "values": {
+    "taxpayer_name": "María Ivanova",
+    "ssn_last4": "3671",
+    "tx_150": 0,
+    "tx_806": -160000,
+    "tx_768": -151600,
+    "tx_846": 307700,
+    "deposit_received": 307700
+   }
+  },
+  {
+   "caseKey": "post-substituted-02",
+   "scheme": "post_substituted",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "SUBSTITUTED",
+   "preparerKey": "P20000015",
+   "production": {
+    "rules": [
+     "R14:SUBSTITUTED"
+    ],
+    "verdict": "SUBSTITUTED",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "R14 opens REFUND_PROPOSED: preparer gets 72 h to refute; then the guardian refunds the $302.00 fee via PayPal.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R14:SUBSTITUTED"
+    ],
+    "verdict": "SUBSTITUTED",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "R14 opens REFUND_PROPOSED: preparer gets 72 h to refute; then the guardian refunds the $302.00 fee via PayPal.",
+    "rightReason": true
+   },
+   "readerOk": 4,
+   "readerTotal": 4,
+   "readerMisses": [],
+   "latencyMs": 2561,
+   "tokensIn": 2830,
+   "tokensOut": 223,
+   "costUsd": 0.00789,
+   "values": {
+    "taxpayer_name": "Emeka Ivanova",
+    "ssn_last4": "6550",
+    "tx_150": 153700,
+    "tx_806": -460000,
+    "tx_846": 306300,
+    "deposit_received": 306300
+   }
+  },
+  {
+   "caseKey": "post-substituted-04",
+   "scheme": "post_substituted",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "SUBSTITUTED",
+   "preparerKey": "P20000011",
+   "production": {
+    "rules": [
+     "R14:SUBSTITUTED"
+    ],
+    "verdict": "SUBSTITUTED",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "R14 opens REFUND_PROPOSED: preparer gets 72 h to refute; then the guardian refunds the $351.00 fee via PayPal.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R14:SUBSTITUTED"
+    ],
+    "verdict": "SUBSTITUTED",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "R14 opens REFUND_PROPOSED: preparer gets 72 h to refute; then the guardian refunds the $351.00 fee via PayPal.",
+    "rightReason": true
+   },
+   "readerOk": 4,
+   "readerTotal": 4,
+   "readerMisses": [],
+   "latencyMs": 2508,
+   "tokensIn": 2843,
+   "tokensOut": 262,
+   "costUsd": 0.008306,
+   "values": {
+    "taxpayer_name": "Yusuf Diallo",
+    "ssn_last4": "2788",
+    "tx_150": 0,
+    "tx_806": -390000,
+    "tx_768": -530300,
+    "tx_846": 1260300,
+    "deposit_received": 1260300
+   }
+  },
+  {
+   "caseKey": "post-diverted-02",
+   "scheme": "post_diverted",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "DIVERTED",
+   "preparerKey": "P20000015",
+   "production": {
+    "rules": [
+     "R14:DIVERTED"
+    ],
+    "verdict": "DIVERTED",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "R14 opens REFUND_PROPOSED: preparer gets 72 h to refute; then the guardian refunds the $328.00 fee via PayPal.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R14:DIVERTED"
+    ],
+    "verdict": "DIVERTED",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "R14 opens REFUND_PROPOSED: preparer gets 72 h to refute; then the guardian refunds the $328.00 fee via PayPal.",
+    "rightReason": true
+   },
+   "readerOk": 4,
+   "readerTotal": 4,
+   "readerMisses": [],
+   "latencyMs": 2566,
+   "tokensIn": 2844,
+   "tokensOut": 263,
+   "costUsd": 0.008318,
+   "values": {
+    "taxpayer_name": "Tariq Kaur",
+    "ssn_last4": "9688",
+    "tx_150": 255000,
+    "tx_806": -150000,
+    "tx_768": -261400,
+    "tx_846": 271900,
+    "deposit_received": 0
+   }
+  },
+  {
+   "caseKey": "post-diverted-04",
+   "scheme": "post_diverted",
+   "split": "dev",
+   "condition": "pdf",
+   "expected": "DIVERTED",
+   "preparerKey": "P20000011",
+   "production": {
+    "rules": [
+     "R14:DIVERTED"
+    ],
+    "verdict": "DIVERTED",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "R14 opens REFUND_PROPOSED: preparer gets 72 h to refute; then the guardian refunds the $420.00 fee via PayPal.",
+    "rightReason": true
+   },
+   "core": {
+    "rules": [
+     "R14:DIVERTED"
+    ],
+    "verdict": "DIVERTED",
+    "detected": true,
+    "warnedOnly": false,
+    "moneyMovedWrongly": false,
+    "paypal": "R14 opens REFUND_PROPOSED: preparer gets 72 h to refute; then the guardian refunds the $420.00 fee via PayPal.",
+    "rightReason": true
+   },
+   "readerOk": 4,
+   "readerTotal": 4,
+   "readerMisses": [],
+   "latencyMs": 2493,
+   "tokensIn": 2841,
+   "tokensOut": 260,
+   "costUsd": 0.008282,
+   "values": {
+    "taxpayer_name": "Emeka Kowalski",
+    "ssn_last4": "9116",
+    "tx_150": 47500,
+    "tx_806": -420000,
+    "tx_768": -26900,
+    "tx_846": 399400,
+    "deposit_received": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+/* SignClear identity: a tax return you can finally read.
+   Warm paper, black ink, a highlighter for what matters, rubber stamps for money. */
+@theme {
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+  --color-ink: #161513;
+  --color-ink-soft: #57524a;
+  --color-paper: #f1ebdd;
+  --color-sheet: #fffdf6;
+  --color-line: #ddd4c1;
+  --color-mark: #e3f23a; /* highlighter */
+  --color-brand: #161513;
+  --color-brand-dark: #000000;
+  --color-ok: #1e6b46;
+  --color-ok-soft: #e1eedc;
+  --color-diff: #d4442a;
+  --color-diff-soft: #fbe2d9;
+  --color-ask: #6b4fd8;
+  --color-ask-soft: #ece7fb;
+}
+
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1;
+}
+
+/* Fine paper grain */
+body {
+  background-image: radial-gradient(rgba(22, 21, 19, 0.035) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400 !important;
+  letter-spacing: -0.01em;
+}
+.font-display em {
+  font-style: italic;
+}
+
+/* Highlighter swipe behind text */
+.hl {
+  background: linear-gradient(100deg, transparent 0 1%, var(--color-mark) 2% 97%, transparent 99%);
+  background-size: 100% 70%;
+  background-position: 0 70%;
+  background-repeat: no-repeat;
+  padding: 0 0.15em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+@keyframes swipe {
+  from {
+    background-size: 0% 70%;
+  }
+  to {
+    background-size: 100% 70%;
+  }
+}
+.hl-anim {
+  animation: swipe 0.9s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Rubber stamp */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  border: 2.5px solid currentColor;
+  border-radius: 4px;
+  padding: 0.15em 0.55em;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transform: rotate(-4deg);
+  box-shadow: inset 0 0 0 1.5px var(--color-sheet), inset 0 0 0 3px currentColor;
+  mix-blend-mode: multiply;
+  opacity: 0.92;
+}
+@keyframes thump {
+  0% {
+    transform: rotate(-4deg) scale(1.8);
+    opacity: 0;
+  }
+  60% {
+    transform: rotate(-4deg) scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-4deg) scale(1);
+  }
+}
+.stamp-anim {
+  animation: thump 0.45s cubic-bezier(0.3, 1.4, 0.5, 1) both;
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(227, 242, 58, 0.9);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(227, 242, 58, 0);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border-[1.5px] border-ink bg-mark px-5 py-2.5 font-semibold text-ink shadow-[3px_3px_0_0_var(--color-ink)] transition-[transform,box-shadow] hover:-translate-x-px hover:-translate-y-px hover:shadow-[4px_4px_0_0_var(--color-ink)] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border-[1.5px] border-ink bg-sheet px-4 py-2.5 font-medium text-ink transition hover:bg-white;
+  }
+  .btn-danger {
+    @apply inline-flex items-center gap-2 rounded-md border-[1.5px] border-diff bg-diff-soft px-4 py-2.5 font-semibold text-diff hover:bg-white;
+  }
+  .chip {
+    @apply rounded-md border-[1.5px] border-ink/20 bg-sheet px-3 py-1 text-sm text-ink-soft transition hover:text-ink;
+  }
+  .chip-on {
+    @apply border-ink bg-ink text-sheet hover:text-sheet;
+  }
+  .card {
+    @apply rounded-md border-[1.5px] border-ink bg-sheet shadow-[5px_5px_0_0_rgba(22,21,19,0.9)];
+  }
+  .eyebrow {
+    @apply font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-soft;
+  }
+  .tab {
+    @apply flex-1 px-3 py-3 text-sm text-ink-soft transition hover:text-ink;
+  }
+  .tab-on {
+    @apply border-b-[3px] border-ink font-semibold text-ink;
+  }
+  .badge-sim {
+    @apply ml-1 rounded-sm border border-ink/40 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wide text-ink-soft;
+  }
+}
+
+/* AG Grid */
+.ag-row-group .ag-group-value {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-ink-soft);
+}
+.ag-row-group {
+  background: var(--color-paper) !important;
+}
+.fc-row-selected {
+  background: #f7f9cf !important;
+}
+
+@keyframes row-focus {
+  0%, 60% { background: var(--color-mark); }
+  100% { background: transparent; }
+}
+.fc-row-focus {
+  animation: row-focus 2.6s ease-out;
+  outline: 2px solid var(--color-ink);
+  outline-offset: -2px;
+}
+
+/* 90-second story: caption dwell bar + new PayPal call flash */
+@keyframes tour-dwell {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.tour-dwell {
+  animation-name: tour-dwell;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+@keyframes tour-new {
+  0% {
+    background: rgba(227, 242, 58, 0.35);
+  }
+  100% {
+    background: transparent;
+  }
+}
+.tour-new {
+  animation: tour-new 2.4s ease-out;
+}

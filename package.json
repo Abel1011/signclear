@@ -1,0 +1,52 @@
+{
+  "name": "firma-clara",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "start:local": "node --use-system-ca node_modules/next/dist/bin/next start",
+    "test": "vitest run",
+    "start:render": "prisma migrate deploy && next start"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@paypal/react-paypal-js": "^10.6.1",
+    "@prisma/client": "^6.19.3",
+    "ag-grid-community": "^36.3.0",
+    "ag-grid-enterprise": "^36.3.0",
+    "ag-grid-react": "^36.3.0",
+    "ajv": "^8.20.0",
+    "next": "15.5.29",
+    "pdf-lib": "^1.17.1",
+    "prisma": "^6.19.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@napi-rs/canvas": "^0.1.65",
+    "@next/swc-wasm-nodejs": "^15.5.29",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.29",
+    "pdfjs-dist": "^4.10.38",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^5.1.0"
+  },
+  "allowScripts": {
+    "prisma@6.19.3": true,
+    "@prisma/client@6.19.3": true,
+    "@prisma/engines@6.19.3": true,
+    "esbuild@0.28.2": true
+  }
+}
